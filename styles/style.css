@@ -1,0 +1,752 @@
+@charset "UTF-8";
+
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Raleway:wght@400;700&display=swap");
+
+/* Josh Comeau's CSS Reset */
+
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/*
+  2. Remove default margin
+*/
+* {
+  margin: 0;
+}
+/*
+  3. Allow percentage-based heights in the application
+*/
+html,
+body {
+  height: 100%;
+}
+/*
+  Typographic tweaks!
+  4. Add accessible line-height
+  5. Improve text rendering
+*/
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+/*
+  6. Improve media defaults
+*/
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+/*
+  7. Remove built-in form typography styles
+*/
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+/*
+  8. Avoid text overflows
+*/
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+/*
+  9. Create a root stacking context
+*/
+#root,
+#__next {
+  isolation: isolate;
+}
+
+/* Colors and Fonts */
+
+:root {
+  /* ### Primary */
+
+  --Intro-email-background: hsl(217, 28%, 15%);
+  --Main-background: hsl(218, 28%, 13%);
+  --Footer-background: hsl(216, 53%, 9%);
+  --Testimonials-background: hsl(219, 30%, 18%);
+
+  /* ### Accent */
+
+  --Inside-call-to-action-gradient1: hsl(176, 68%, 64%);
+  --Inside-call-to-action-gradient2: hsl(198, 60%, 50%);
+  --Error: hsl(0, 100%, 63%);
+
+  /* ### Neutral */
+
+  --White: hsl(0, 0%, 100%);
+
+  --ff-heading-cta-nav: "Raleway", sans-serif;
+  --ff-body: "Open Sans", sans-serif;
+
+  --fw-regular: 400;
+  --fw-bold: 700;
+}
+
+/* General Styling */
+
+body {
+  color: var(--White);
+  font-size: 0.875rem;
+  font-family: var(--ff-body);
+  text-align: center;
+}
+
+header {
+  position: relative;
+  background-color: var(--Intro-email-background);
+  padding: 1.875rem 1.5rem;
+  display: grid;
+  grid-template-areas:
+    "one two"
+    "three three";
+  row-gap: 3.875rem;
+}
+
+footer {
+  background-color: var(--Footer-background);
+}
+
+h1,
+h2,
+button,
+nav {
+  font-family: var(--ff-heading-cta-nav);
+}
+
+h2 {
+  font-size: 1.125rem;
+}
+
+/* Header Styling */
+
+.header_logo {
+  width: 5rem;
+  grid-area: one;
+}
+
+.header_menu {
+  grid-area: two;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.header_menu a {
+  text-decoration: none;
+  color: var(--White);
+  font-size: 0.75rem;
+}
+
+.header_menu a:hover {
+  cursor: pointer;
+  font-weight: var(--fw-bold);
+  text-decoration: underline;
+}
+
+.header_image {
+  grid-area: three;
+  padding: 0 1.875rem;
+  padding-bottom: 4.75rem;
+  z-index: 1;
+}
+
+/* Main bloc styling */
+
+.card {
+  position: relative;
+  background-color: var(--Main-background);
+}
+
+.curvy_bg {
+  position: absolute;
+  top: 0;
+  transform: translateY(-100%);
+  width: 100%;
+}
+
+.main_heading {
+  display: grid;
+  gap: 1.125rem;
+  padding: 1.875rem;
+  transform: translateY(-5.5rem);
+}
+
+.main_heading h1 {
+  font-size: 1.5rem;
+}
+
+.main_heading p {
+  font-size: 0.875rem;
+}
+
+button {
+  margin: auto;
+  width: 14.5rem;
+  border: none;
+  color: var(--White);
+  font-weight: var(--fw-bold);
+  background-image: linear-gradient(
+    to right,
+    var(--Inside-call-to-action-gradient1),
+    var(--Inside-call-to-action-gradient2)
+  );
+  padding: 0.875rem 1rem;
+  border-radius: 2rem;
+}
+
+button:hover {
+  cursor: pointer;
+  background-image: unset;
+  background-color: #8cdae4;
+}
+
+.top_button {
+  margin-top: 0.875rem;
+}
+
+/* Product description bloc styling */
+
+.product_description {
+  margin-top: 0.75rem;
+  display: grid;
+  gap: 5.75rem;
+  margin-bottom: 8.5rem;
+}
+
+.description_bloc,
+.product_how,
+.testimonials,
+.early_access,
+footer {
+  padding: 0 2rem;
+}
+
+.description_bloc {
+  display: grid;
+  place-items: center;
+  gap: 0.5rem;
+}
+
+.description_bloc img {
+  width: 4rem;
+  margin-bottom: 1.5rem;
+}
+
+.description_bloc:nth-child(2) img {
+  width: 3.25rem;
+}
+
+.description_bloc:nth-child(4) img {
+  margin-bottom: 2rem;
+}
+
+/* See how fylo works section styling */
+
+.product_how {
+  text-align: left;
+  display: grid;
+  gap: 1rem;
+}
+
+.product_how img {
+  margin-bottom: 1.875rem;
+}
+
+.product_how_text {
+  display: grid;
+  gap: 1rem;
+}
+
+.fylo_works {
+  text-decoration: none;
+  color: var(--Inside-call-to-action-gradient1);
+  border-bottom: 1px solid var(--Inside-call-to-action-gradient1);
+  width: fit-content;
+  padding-bottom: 0.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+}
+
+.fylo_works::after {
+  content: "";
+  width: 1rem;
+  height: 1rem;
+  display: inline-block;
+  background: url("../images/icon-arrow.svg") no-repeat center center/cover;
+}
+
+.fylo_works:hover {
+  cursor: pointer;
+  color: var(--White);
+  border-color: var(--White);
+}
+
+.fylo_works:hover::after {
+  background-image: url("../images/icon-arrow-white.png");
+}
+
+/* Testimonials section styling */
+
+.testimonials {
+  position: relative;
+  display: grid;
+  gap: 1.5rem;
+  padding: 0 3rem;
+  margin-top: 11.25rem;
+  margin-bottom: -1rem;
+}
+
+.testimonials::before {
+  position: absolute;
+  left: 3rem;
+  transform: translateY(-100%);
+  content: "";
+  width: 1.5rem;
+  height: 1rem;
+  display: inline-block;
+  background: url(../images/bg-quotes.png) no-repeat center center/contain;
+}
+
+.testimonials_quote {
+  background-color: var(--Testimonials-background);
+  font-size: 0.675rem;
+  text-align: left;
+  padding: 1.5rem 1.25rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.quote_author {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.headshot {
+  width: 1.5rem;
+  border-radius: 50%;
+}
+
+.personal_info {
+  display: flex;
+  flex-direction: column;
+}
+
+.quote_name {
+  font-weight: var(--fw-bold);
+}
+
+.quote_job {
+  font-size: 0.5625rem;
+}
+
+/* Early access bloc styling */
+
+.early_access {
+  display: grid;
+  gap: 1.25rem;
+  background-color: var(--Intro-email-background);
+  margin: 0 1.25rem;
+  border-radius: 0.75rem;
+  box-shadow: 1px 1px 7px rgba(0, 0, 0, 0.397);
+  padding: 2.25rem 1.75rem;
+  transform: translateY(50%);
+}
+
+.early_access h3 {
+  font-size: 1.0625rem;
+}
+
+form {
+  position: relative;
+  margin-top: 1rem;
+  display: grid;
+  gap: 1.5rem;
+}
+
+.label_word {
+  display: none;
+}
+
+#iemail,
+.bottomButton {
+  width: 100%;
+}
+
+#iemail {
+  padding: 0.875rem;
+  border-radius: 2rem;
+  border: none;
+}
+
+#iemail::placeholder {
+  font-size: 0.6875rem;
+  color: grey;
+}
+
+.error_msg {
+  display: none;
+  position: absolute;
+  text-align: left;
+  font-size: 0.6875rem;
+  color: red;
+  top: 3.25rem;
+  left: 1.5rem;
+}
+
+/* Footer styling */
+
+footer {
+  display: grid;
+  gap: 3.25rem;
+  text-align: left;
+  font-size: 0.9375rem;
+  padding-top: 16rem;
+}
+
+address {
+  display: grid;
+  gap: 1rem;
+  font-style: normal;
+}
+
+.address__location,
+.phone,
+.email {
+  display: flex;
+  gap: 1rem;
+}
+
+.phone,
+.email {
+  align-items: center;
+}
+
+.address__location::before,
+.phone::before,
+.email::before {
+  content: "";
+  width: 1.125rem;
+  height: 1.125rem;
+  display: block;
+}
+
+.address__location::before {
+  background: url("../images/icon-location.svg") no-repeat center center/contain;
+  width: 3rem;
+}
+
+.phone::before {
+  background: url("../images/icon-phone.svg") no-repeat center center/contain;
+}
+
+.email::before {
+  background: url("../images/icon-email.svg") no-repeat center center/contain;
+}
+
+.footer__menu {
+  list-style-type: none;
+  padding: 0;
+  margin: 2rem 0;
+}
+
+.footer__menu li a {
+  text-decoration: none;
+  color: var(--White);
+  line-height: 2.25rem;
+  font-size: 1rem;
+}
+
+.footer__menu a:hover {
+  cursor: pointer;
+  font-weight: var(--fw-bold);
+}
+
+.extra_space {
+  padding-bottom: 2.5rem;
+}
+
+.social_icons {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+ion-icon {
+  border: 1px solid var(--White);
+  border-radius: 50%;
+  padding: 0.25rem;
+}
+
+ion-icon:hover {
+  cursor: pointer;
+  color: var(--Inside-call-to-action-gradient1);
+  border-color: var(--Inside-call-to-action-gradient1);
+}
+
+.attribution {
+  font-size: 0.6875rem;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+/* Classes for JavaScript */
+
+.display {
+  display: block;
+}
+
+/* Media query for desktops */
+
+@media screen and (min-width: 60em) {
+  header {
+    padding: 4.5rem 5rem;
+    padding-bottom: 25rem;
+    row-gap: 4.75rem;
+  }
+
+  .header_logo {
+    width: 10.875rem;
+  }
+
+  .header_menu {
+    gap: 3.8125rem;
+  }
+
+  .header_menu a {
+    font-size: 0.9375rem;
+  }
+
+  .header_image {
+    margin: auto;
+    padding-bottom: 1rem;
+  }
+
+  .main_heading {
+    gap: 1.875rem;
+    width: 60%;
+    margin: auto;
+    transform: translateY(-25.5rem);
+    margin-bottom: -17rem;
+  }
+
+  .main_heading h1 {
+    font-size: 2.5rem;
+  }
+
+  .main_heading p {
+    font-size: 1.25rem;
+    width: 38rem;
+    margin: auto;
+  }
+
+  button {
+    padding: 1.125rem 0rem;
+    font-size: 1rem;
+    width: 17.5rem;
+  }
+
+  .top_button {
+    margin-top: unset;
+  }
+
+  .product_description {
+    grid-template-columns: 1fr 1fr;
+    margin: unset;
+    row-gap: 4.75rem;
+  }
+
+  .access,
+  .collab {
+    place-self: center end;
+  }
+
+  .description_bloc {
+    width: 25rem;
+    padding: unset;
+    padding-bottom: 1.625rem;
+  }
+
+  .description_bloc h2 {
+    font-size: 1.25rem;
+  }
+
+  .description_bloc img {
+    margin: unset;
+    margin-bottom: .75rem;
+    width: 5rem;
+  }
+
+  .description_bloc:nth-child(2) img {
+    width: 4.25rem;
+  }
+
+  .product_how {
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    padding: 8rem 6rem 2.75rem 6rem;
+  }
+
+  .product_how_text {
+    place-self: center center;
+  }
+
+  .product_how_text h2 {
+    font-size: 2.5rem;
+    line-height: normal;
+  }
+
+  .product_how_text p {
+    font-size: 1rem;
+  }
+
+  .fylo_works {
+    font-size: 1rem;
+    margin-top: 1rem;
+  }
+
+  .testimonials {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+    padding: 0 6rem;
+    place-items: center center;
+    margin-top: 7rem;
+  }
+
+  .testimonials::before {
+    top: 0.5rem;
+    left: 6.5rem;
+    width: 4rem;
+    height: 2.5rem;
+    z-index: 0;
+  }
+
+  .testimonials_quote {
+    width: 100%;
+    z-index: 1;
+    font-size: 0.875rem;
+    padding: 2.5rem 1.5rem 1.5rem 1.5rem;
+    gap: 1.25rem;
+  }
+
+  .early_access {
+    width: 54rem;
+    margin: auto;
+    padding: 2.5rem 5rem;
+    margin-top: 4.75rem;
+  }
+
+  .early_access h3 {
+    font-size: 2rem;
+  }
+
+  form {
+    grid-template-columns: 2.5fr 1fr;
+    gap: 2rem;
+  }
+
+  #iemail {
+    height: 3.125rem;
+  }
+
+  .bottomButton {
+    height: 3.125rem;
+    padding: unset;
+    font-size: 0.8125rem;
+  }
+
+  footer {
+    padding-top: 13.5rem;
+    padding-left: 7.5rem;
+    grid-template-areas:
+      "one one one"
+      "two three four"
+      "five five five";
+    grid-template-columns: 3.4fr 1fr 1fr;
+    row-gap: 2rem;
+  }
+
+  .footer_logo {
+    grid-area: one; /* For footer grid */
+  }
+
+  address {
+    grid-template-areas:
+      "one two"
+      "one three";
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 0.25fr 1fr;
+    grid-area: two; /* For footer grid */
+  }
+
+  .address__location {
+    grid-area: one; /* For address grid */
+  }
+
+  .phone {
+    grid-area: two; /* For address grid */
+    place-self: start center;
+    transform: translateX(-0.5rem);
+  }
+
+  .email {
+    grid-area: three; /* For address grid */
+    place-self: start center;
+  }
+
+  .footer__menu {
+    grid-area: three; /* For footer grid */
+    columns: 2;
+    column-gap: 3.125rem;
+    margin: unset;
+    place-self: start end;
+  }
+
+  .footer__menu li {
+    width: 6rem;
+  }
+
+  .extra_space {
+    padding: unset;
+  }
+
+  .social_icons {
+    grid-area: four; /* For footer grid */
+    width: fit-content;
+    place-self: start center;
+  }
+
+  ion-icon {
+    width: 1rem;
+    height: 1rem;
+    padding: 0.5rem;
+  }
+
+  .attribution {
+    grid-area: five; /* For footer grid */
+  }
+}
